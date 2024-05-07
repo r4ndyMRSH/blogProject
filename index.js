@@ -27,20 +27,24 @@ app.get("/", (req, res) => {
   });
 });
 
+//Create Page
 app.get("/create", (req, res) => {
   res.render("create.ejs");
 });
-
+//About Page
 app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
-
+//Contact Page
 app.get("/contact", (req, res) => {
   res.render("contact.ejs");
 });
 
 //Adding new post via submit button POST method
 app.post("/", (req, res) => {
+  // 1 - Create Post
+  // 2 - Edit Post
+  // 3 - Delete Post
   let post = [];
   if (req.body["operationType"] === "1") {
     post.push(req.body["title"]);
@@ -52,7 +56,7 @@ app.post("/", (req, res) => {
     db[i][1] = req.body["post"];
   } else if (req.body["operationType"] === "3") {
     let i = req.body["indexOfdb"];
-    db.splice(i,1);
+    db.splice(i, 1);
   }
 
   res.render("index.ejs", {
@@ -60,7 +64,7 @@ app.post("/", (req, res) => {
   });
 });
 
-//read post
+//Read Post Page
 app.post("/read", (req, res) => {
   let i = req.body["indexOfdb"];
   console.log(i);
@@ -70,7 +74,7 @@ app.post("/read", (req, res) => {
   });
 });
 
-//edit post
+//Edit Post Page
 app.post("/edit", (req, res) => {
   let i = req.body["indexOfdb"];
   console.log(i);
@@ -80,6 +84,7 @@ app.post("/edit", (req, res) => {
   });
 });
 
+//Server
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });

@@ -1,0 +1,19 @@
+<% for (let index = 0; index < data.length; index++) { %>
+
+<div class="feature col" id="record-<%= index %>">
+  <h3 class="fs-2 text-body-emphasis"><%= data[index][0] %></h3>
+  <p><%= data[index][1].slice(0,200) + "..." %></p>
+  <form action="/read" method="POST">
+    <input
+      type="text"
+      name="indexOfdb"
+      class="form-control"
+      id="indexOfdb"
+      value="<%= index %>"
+      hidden
+    />
+    <input class="btn btn-secondary my-3" type="submit" value="Read" />
+  </form>
+</div>
+
+<% } %>

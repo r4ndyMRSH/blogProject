@@ -1,0 +1,44 @@
+<%- include("partials/header.ejs"); %>
+
+<div class="container my-3">
+  <div class="p-5 text-center bg-body-tertiary rounded-3">
+    <h1 class="text-body-emphasis"><%- data[index][0] %></h1>
+    <p class="lead"><%- data[index][1] %></p>
+  </div>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <form action="/edit" method="POST">
+      <input
+        type="text"
+        name="indexOfdb"
+        class="form-control"
+        id="indexOfdb"
+        value="<%= index %>"
+        hidden
+      />
+      <input class="btn btn-secondary my-3 mx-1" type="submit" value="Edit" />
+    </form>
+
+    <form action="/" method="POST">
+      <input
+        type="text"
+        name="indexOfdb"
+        class="form-control"
+        id="indexOfdb"
+        value="<%= index %>"
+        hidden
+      />
+
+      <input
+        type="text"
+        name="operationType"
+        class="form-control"
+        id="operationType"
+        value="3"
+        hidden
+      />
+      <input class="btn btn-secondary my-3 mx-1" type="submit" value="Delete" />
+    </form>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs"); %>

@@ -1,0 +1,64 @@
+<%- include("partials/header.ejs"); %>
+
+
+
+<div class="px-4 py-5 my-5 text-center">
+  <img
+    class="d-block mx-auto mb-4"
+    src="/img/write.svg"
+    alt=""
+    width="72"
+    height="57"
+  />
+  <h1 class="display-5 fw-bold text-body-emphasis">New Post</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      To create a new post, simply let your creativity flow. Pour your heart out
+      onto the blank page before you, allowing your words to dance and weave
+      together in a tapestry of emotions and reflections.
+    </p>
+
+    <form action="/" method="POST">
+      <p class="text-start">Title</p>
+
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        id="postTtitle"
+        placeholder="Another great day!"
+      />
+
+      <p class="text-start">Post</p>
+      <textarea
+        type="text"
+        name="post"
+        class="form-control"
+        id="postText"
+        rows="10"
+        placeholder="Feel free to give your post..."
+      ></textarea>
+
+      <input
+        type="text"
+        name="operationType"
+        class="form-control"
+        id="operationType"
+        value="1"
+        hidden
+      />
+
+      <input class="btn btn-secondary my-3" type="submit" value="New Post" />
+
+      <button
+        type="button"
+        id="clearBtn"
+        class="btn btn-outline-secondary px-4"
+      >
+        Clear
+      </button>
+    </form>
+  </div>
+</div>
+<script src="js/newPost.js" defer></script>
+<%- include("partials/footer.ejs"); %>

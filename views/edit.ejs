@@ -1,0 +1,66 @@
+<%- include("partials/header.ejs"); %>
+
+<div class="px-4 py-5 my-5 text-center">
+  <img
+    class="d-block mx-auto mb-4"
+    src="/img/write.svg"
+    alt=""
+    width="72"
+    height="57"
+  />
+  <h1 class="display-5 fw-bold text-body-emphasis">Edit Post</h1>
+  <div class="col-lg-6 mx-auto">
+    <form action="/" method="POST">
+      <p class="text-start">Title</p>
+
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        id="postTtitle"
+        value="<%= data[index][0] %>"
+      />
+
+      <p class="text-start">Post</p>
+      <textarea
+        type="text"
+        name="post"
+        class="form-control"
+        id="postText"
+        rows="10"
+      >
+<%= data[index][1] %></textarea
+      >
+
+      <input
+        type="text"
+        name="operationType"
+        class="form-control"
+        id="operationType"
+        value="2"
+        hidden
+      />
+
+      <input
+      type="text"
+      name="indexOfdb"
+      class="form-control"
+      id="indexOfdb"
+      value="<%= index %>"
+      hidden
+    />
+
+      <input class="btn btn-secondary my-3" type="submit" value="Save" />
+
+      <button
+        type="button"
+        id="clearBtn"
+        class="btn btn-outline-secondary px-4"
+      >
+        Clear
+      </button>
+    </form>
+  </div>
+</div>
+<script src="js/newPost.js" defer></script>
+<%- include("partials/footer.ejs"); %>
