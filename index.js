@@ -42,12 +42,41 @@ app.get("/contact", (req, res) => {
 //Adding new post via submit button POST method
 app.post("/", (req, res) => {
   let post = [];
-  post.push(req.body["title"]);
-  post.push(req.body["post"]);
-  db.push(post);
+  if (req.body["operationType"] === "1") {
+    post.push(req.body["title"]);
+    post.push(req.body["post"]);
+    db.push(post);
+  } else if (req.body["operationType"] === "2") {
+    let i = req.body["indexOfdb"];
+    db[i][0] = req.body["title"];
+    db[i][1] = req.body["post"];
+  } else if (req.body["operationType"] === "3") {
+    let i = req.body["indexOfdb"];
+    db.splice(i,1);
+  }
 
   res.render("index.ejs", {
     data: db,
+  });
+});
+
+//read post
+app.post("/read", (req, res) => {
+  let i = req.body["indexOfdb"];
+  console.log(i);
+  res.render("read.ejs", {
+    data: db,
+    index: i,
+  });
+});
+
+//edit post
+app.post("/edit", (req, res) => {
+  let i = req.body["indexOfdb"];
+  console.log(i);
+  res.render("edit.ejs", {
+    data: db,
+    index: i,
   });
 });
 
