@@ -67,7 +67,7 @@ app.post("/", (req, res) => {
 //Read Post Page
 app.post("/read", (req, res) => {
   let i = req.body["indexOfdb"];
-  console.log(i);
+  //console.log(i);
   res.render("read.ejs", {
     data: db,
     index: i,
@@ -77,7 +77,7 @@ app.post("/read", (req, res) => {
 //Edit Post Page
 app.post("/edit", (req, res) => {
   let i = req.body["indexOfdb"];
-  console.log(i);
+  //console.log(i);
   res.render("edit.ejs", {
     data: db,
     index: i,
